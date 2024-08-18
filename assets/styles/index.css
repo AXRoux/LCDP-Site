@@ -1,0 +1,68 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
+#background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+#content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px #ff0000;
+}
+
+#password-form {
+    margin-bottom: 20px;
+}
+
+#password-input {
+    padding: 10px;
+    font-size: 1em;
+    width: 200px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+}
+
+#submit-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#welcome-message {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+#loading-bar {
+    width: 0%;
+    height: 5px;
+    background-color: #ff0000;
+    transition: width 3s ease-in-out;
+}

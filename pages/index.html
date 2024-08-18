@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;">
+    <title>La Casa De Papel Vault</title>
+    <link rel="stylesheet" href="../assets/styles/global.css">
+    <link rel="stylesheet" href="../assets/styles/index.css">
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+<body>
+    <div id="background-video"></div>
+    <div id="content">
+        <h1>La Casa De Papel Vault</h1>
+        <p id="password-hint">The password is bella ciao</p>
+        <div id="password-form">
+            <input type="password" id="password-input" placeholder="Enter password">
+            <button id="submit-button">Enter</button>
+        </div>
+        <div id="welcome-message" style="display: none;">
+            <h2>Welcome to La Casa De Papel</h2>
+            <p>Preparing for heist...</p>
+            <div id="loading-bar"></div>
+        </div>
+    </div>
+    <script src="../assets/scripts/index.js"></script>
+</body>
+</html>

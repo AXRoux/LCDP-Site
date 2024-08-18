@@ -1,0 +1,278 @@
+:root {
+    --primary-color: #BF0904;
+    --secondary-color: #FF5733;
+    --background-color: #000000;
+    --text-color: #FFFFFF;
+    --accent-color: #00FFFF;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.cyberpunk-body {
+    position: relative;
+    min-height: 100vh;
+}
+
+.cyberpunk-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+}
+
+#title-animation {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1rem;
+    margin-left: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+.story-section, .skillsets-section {
+    padding: 6rem 2rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+}
+
+.story-part, .skill-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+    margin-bottom: 1.5rem;
+}
+
+.story-part.visible, .skill-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.skill-item {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--primary-color);
+    padding: 1.5rem;
+    border-radius: 5px;
+}
+
+.skill-item h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.section-header {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 2rem 0;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--accent-color);
+}
+
+.skillsets-section {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.skillset-item {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid #BF0904;
+    padding: 1.5rem;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+}
+
+.skillset-item h3 {
+    color: #BF0904;
+    margin-top: 0;
+}
+
+.skillset-item p {
+    color: #ffffff;
+}
+
+.example-toggle {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+.example-toggle:hover {
+    background-color: var(--secondary-color);
+}
+
+.example-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.8s ease-out;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 5px;
+    margin-top: 1rem;
+    opacity: 0;
+}
+
+.example-content.show {
+    max-height: 2000px;
+    padding: 1rem;
+    opacity: 1;
+}
+
+.example-illustration {
+    width: 100%;
+    height: 500px;
+    background-color: #000;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+/* OSINT Example Styles */
+#osint-example .social-media-feed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#osint-example .social-post {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+#osint-example .data-points {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+#osint-example .analysis-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(191, 9, 4, 0.2);
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/* ASINT Example Styles */
+#asint-example .satellite-imagery,
+#asint-example .human-intel,
+#asint-example .signals-intel {
+    position: absolute;
+    width: 33.33%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+#asint-example .satellite-imagery { left: 0; background-color: rgba(0, 0, 255, 0.2); }
+#asint-example .human-intel { left: 33.33%; background-color: rgba(0, 255, 0, 0.2); }
+#asint-example .signals-intel { right: 0; background-color: rgba(255, 0, 0, 0.2); }
+
+#asint-example .integration-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.story-section {
+    height: 300px;
+    overflow: hidden;
+    margin-bottom: 8rem; /* Increased from 4rem to 8rem to push skillsets down */
+}
+
+.skillsets-header {
+    font-family: 'YourLogoFont', sans-serif; /* Replace with the actual font used for the logo */
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 8rem 0 4rem; /* Increased top margin from 4rem to 8rem */
+    color: #BF0904; /* The red color used in the logo */
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1200px) {
+  /* Adjustments for larger tablets and small desktops */
+}
+
+@media screen and (max-width: 992px) {
+  /* Adjustments for tablets */
+}
+
+@media screen and (max-width: 768px) {
+  /* Adjustments for large smartphones */
+}
+
+@media screen and (max-width: 576px) {
+  /* Adjustments for small smartphones */
+}

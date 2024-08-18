@@ -1,0 +1,189 @@
+/* Navbar specific styling for accomplishments page */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#title-animation {
+    font-size: 24px;
+    color: #BF0904;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.nav-links {
+    display: flex;
+    margin-right: 20px;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: #BF0904;
+    color: #ffffff;
+}
+
+/* Hero section styles */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 2;
+}
+
+.glitch-text {
+    font-size: 3rem;
+    color: #fff;
+    text-shadow: 2px 2px #BF0904;
+    margin: 0;
+    animation: glitch 3s infinite;
+}
+
+.quote-author {
+    font-size: 1.5rem;
+    color: #BF0904;
+    margin-top: 1rem;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0) }
+    20% { transform: translate(-2px, 2px) }
+    40% { transform: translate(-2px, -2px) }
+    60% { transform: translate(2px, 2px) }
+    80% { transform: translate(2px, -2px) }
+    100% { transform: translate(0) }
+}
+
+.cyber-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(rgba(191, 9, 4, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(191, 9, 4, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+    0% { transform: translateY(0) }
+    100% { transform: translateY(20px) }
+}
+
+/* Accomplishments section styles */
+.vault-header {
+    text-align: center;
+    font-size: 3rem;
+    color: #BF0904;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px rgba(191, 9, 4, 0.7);
+    font-family: 'Orbitron', sans-serif;
+    min-height: 1.2em; /* Prevents layout shift during translation */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: font-size 0.3s ease; /* Smooth transition for font size changes */
+}
+
+/* Adjust font size for longer translations */
+.vault-header[data-language="Russian"],
+.vault-header[data-language="Japanese"],
+.vault-header[data-language="Chinese"] {
+    font-size: 2.5rem;
+}
+
+.accomplishments-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 80px; /* Increased gap for better spacing */
+    padding: 40px;
+}
+
+.accomplishment-card {
+    width: calc(33.333% - 54px); /* Adjust width to account for gap */
+    height: 180px;
+    background-color: #BF0904;
+    color: white;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 80px; /* Increased margin for vertical spacing */
+}
+
+.card-chip {
+    width: 40px;
+    height: 30px;
+    background: linear-gradient(45deg, #e0e0e0, #f5f5f5);
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.card-logo {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-number {
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.card-points {
+    font-size: 24px;
+    font-weight: bold;
+    align-self: flex-end;
+    text-align: right;
+    width: 100%;
+}
+
+@media (max-width: 1200px) {
+    .accomplishment-card {
+        width: calc(50% - 40px);
+    }
+}
+
+@media (max-width: 768px) {
+    .accomplishment-card {
+        width: 100%;
+    }
+}
