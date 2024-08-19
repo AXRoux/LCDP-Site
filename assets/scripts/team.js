@@ -69,10 +69,10 @@ const teamMembers = [
         skills: {
             OSINT: 100,
             ASINT: 70,
-            Cybersecurity: 80,
-            "Digital Forensics": 70,
+            Cybersecurity: 90,
+            "Digital Forensics": 80,
             GEOINT: 100,
-            "Data Analysis": 60
+            "Data Analysis": 70
         },
         socialMedia: {
             github: "vjz3r",
@@ -154,7 +154,7 @@ const teamMembers = [
             ASINT: 60,
             Cybersecurity: 100,
             "Digital Forensics": 100,
-            GEOINT: 80,
+            GEOINT: 85,
             "Data Analysis": 60
         },
         socialMedia: {
@@ -195,10 +195,10 @@ const teamMembers = [
         skills: {
             OSINT: 100,
             ASINT: 80,
-            Cybersecurity: 70,
+            Cybersecurity: 85,
             "Digital Forensics": 80,
             GEOINT: 100,
-            "Data Analysis": 60
+            "Data Analysis": 80
         },
         socialMedia: {
             linkedin: "frank-diepmaat",
