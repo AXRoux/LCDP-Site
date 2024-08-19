@@ -116,7 +116,9 @@ const teamMembers = [
             "Data Analysis": 75
         },
         socialMedia: {
-            medium: "PretendNotToBe"
+            medium: "PretendNotToBe",
+            twitter: "PretendNotToBe",
+            website: "linktr.ee/thisispretend"
         }
     },
     {
