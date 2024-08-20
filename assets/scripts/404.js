@@ -1,34 +1,28 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Use strict mode for better error catching and performance
-    'use strict';
+'use strict';
 
-    // Use const for elements that won't be reassigned
+document.addEventListener('DOMContentLoaded', () => {
     const codeDisplay = document.getElementById('code-display');
     const feedback = document.getElementById('feedback');
     const timer = document.getElementById('timer');
     const keypad = document.getElementById('keypad');
     const submitButton = document.getElementById('submit');
     const message = document.getElementById('message');
+    const backspaceButton = document.getElementById('backspace');
 
-    // Use let for variables that will be reassigned
     let timeLeft = 120;
     let secretCode = generateSecretCode();
     let currentGuess = '';
-    let attempts = 0;
     let gameOver = false;
 
     function generateSecretCode() {
-        // Use Array.from for clearer intention and avoid potential issues with string concatenation
         return Array.from({length: 4}, () => Math.floor(Math.random() * 10)).join('');
     }
 
     function updateDisplay() {
-        // Use textContent instead of innerHTML for better security
         codeDisplay.textContent = currentGuess.padEnd(4, '0');
     }
 
     function updateTimer() {
-        // Use textContent instead of innerHTML for better security
         timer.textContent = timeLeft;
         if (timeLeft === 0) {
             endGame(false);
@@ -36,19 +30,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function provideFeedback(guess) {
-        let correctDigits = 0;
         let correctPositions = 0;
+        let correctDigits = 0;
+        let secretCodeCopy = secretCode.split('');
+        let guessCopy = guess.split('');
 
-        for (let i = 0; i < 4; i++) {
-            if (guess[i] === secretCode[i]) {
+        // First pass: Check for correct positions
+        for (let i = 3; i >= 0; i--) {
+            if (guessCopy[i] === secretCodeCopy[i]) {
                 correctPositions++;
-            } else if (secretCode.includes(guess[i])) {
-                correctDigits++;
+                secretCodeCopy.splice(i, 1);
+                guessCopy.splice(i, 1);
             }
         }
 
-        // Use textContent instead of innerHTML
-        feedback.textContent = `${correctPositions}🔴 ${correctDigits}🟡`;
+        // Second pass: Check for correct digits in wrong positions
+        for (let i = 0; i < guessCopy.length; i++) {
+            let index = secretCodeCopy.indexOf(guessCopy[i]);
+            if (index !== -1) {
+                correctDigits++;
+                secretCodeCopy.splice(index, 1);
+            }
+        }
+
+        // Update feedback with only the colored indicators
+        feedback.textContent = '🔴'.repeat(correctPositions) + '🟡'.repeat(correctDigits);
     }
 
     function endGame(won) {
@@ -59,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (won) {
             message.textContent = "¡Felicidades! You hacked the vault and escaped with the loot!";
             message.style.color = 'green';
-            // Safe redirection method
             safeRedirect('/main.html');
         } else {
             message.textContent = "¡Alarma! The police caught you. Game over.";
@@ -68,9 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         codeDisplay.textContent = secretCode;
     }
 
-    // Safe redirection function
     function safeRedirect(url) {
-        // Ensure the URL is to the same origin or a relative path
         if (url.startsWith('/') || url.startsWith(window.location.origin)) {
             setTimeout(() => {
                 window.location.href = url;
@@ -81,25 +84,46 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     keypad.addEventListener('click', (e) => {
-        if (e.target.classList.contains('digit') && !gameOver) {
+        if (gameOver) return;
+
+        if (e.target.classList.contains('digit')) {
             if (currentGuess.length < 4) {
                 currentGuess += e.target.textContent;
                 updateDisplay();
             }
+        } else if (e.target.id === 'backspace') {
+            if (currentGuess.length > 0) {
+                currentGuess = currentGuess.slice(0, -1);
+                updateDisplay();
+            }
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (gameOver) return;
+
+        if (e.key >= '0' && e.key <= '9') {
+            if (currentGuess.length < 4) {
+                currentGuess += e.key;
+                updateDisplay();
+            }
+        } else if (e.key === 'Backspace') {
+            if (currentGuess.length > 0) {
+                currentGuess = currentGuess.slice(0, -1);
+                updateDisplay();
+            }
+        } else if (e.key === 'Enter') {
+            submitButton.click();
         }
     });
 
     submitButton.addEventListener('click', () => {
         if (gameOver || currentGuess.length !== 4) return;
 
-        attempts++;
         if (currentGuess === secretCode) {
             endGame(true);
         } else {
             provideFeedback(currentGuess);
-            if (attempts >= 10) {
-                endGame(false);
-            }
             currentGuess = '';
             updateDisplay();
         }
