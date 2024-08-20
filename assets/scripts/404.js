@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Use strict mode for better error catching and performance
+    'use strict';
+
+    // Use const for elements that won't be reassigned
     const codeDisplay = document.getElementById('code-display');
     const feedback = document.getElementById('feedback');
     const timer = document.getElementById('timer');
@@ -6,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitButton = document.getElementById('submit');
     const message = document.getElementById('message');
 
+    // Use let for variables that will be reassigned
     let timeLeft = 120;
     let secretCode = generateSecretCode();
     let currentGuess = '';
@@ -13,18 +18,17 @@ document.addEventListener('DOMContentLoaded', () => {
     let gameOver = false;
 
     function generateSecretCode() {
-        let code = '';
-        for (let i = 0; i < 4; i++) {
-            code += Math.floor(Math.random() * 10);
-        }
-        return code;
+        // Use Array.from for clearer intention and avoid potential issues with string concatenation
+        return Array.from({length: 4}, () => Math.floor(Math.random() * 10)).join('');
     }
 
     function updateDisplay() {
+        // Use textContent instead of innerHTML for better security
         codeDisplay.textContent = currentGuess.padEnd(4, '0');
     }
 
     function updateTimer() {
+        // Use textContent instead of innerHTML for better security
         timer.textContent = timeLeft;
         if (timeLeft === 0) {
             endGame(false);
@@ -43,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        // Use textContent instead of innerHTML
         feedback.textContent = `${correctPositions}🔴 ${correctDigits}🟡`;
     }
 
@@ -54,15 +59,25 @@ document.addEventListener('DOMContentLoaded', () => {
         if (won) {
             message.textContent = "¡Felicidades! You hacked the vault and escaped with the loot!";
             message.style.color = 'green';
-            // Add a slight delay before redirecting
-            setTimeout(() => {
-                window.location.href = '/main.html';
-            }, 2000); // 2-second delay
+            // Safe redirection method
+            safeRedirect('/main.html');
         } else {
             message.textContent = "¡Alarma! The police caught you. Game over.";
             message.style.color = 'red';
         }
         codeDisplay.textContent = secretCode;
+    }
+
+    // Safe redirection function
+    function safeRedirect(url) {
+        // Ensure the URL is to the same origin or a relative path
+        if (url.startsWith('/') || url.startsWith(window.location.origin)) {
+            setTimeout(() => {
+                window.location.href = url;
+            }, 2000);
+        } else {
+            console.error('Invalid redirect URL');
+        }
     }
 
     keypad.addEventListener('click', (e) => {
