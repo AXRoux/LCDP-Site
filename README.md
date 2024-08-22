@@ -9,7 +9,7 @@ Our mission is to collaborate, learn, and conquer CTF challenges that push the b
 We believe in the power of collective intelligence and aim to create a community where members can sharpen their skills, exchange insights, and stay ahead of emerging threats.
 
 ## 💼 **Who We Are**
-- **Professionals** in the field of CyberSecurity, OSINT, GEOINT, and Information Technology.
+- **Professionals** in the field of CyberSecurity, OSINT, GEOINT, Lingustics, and Information Technology.
 - **Enthusiasts** who are eager to learn, explore, and contribute to the intelligence community.
 - **Problem Solvers** who love the thrill of a good challenge and the satisfaction of uncovering the truth.
 
