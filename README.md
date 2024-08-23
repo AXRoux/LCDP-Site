@@ -1,6 +1,6 @@
 # 🏴‍☠️ **La Casa de Papel CTF Team**
 
-![Monaco Flag](https://upload.wikimedia.org/wikipedia/commons/e/ea/Flag_of_Monaco.svg) <!-- Monaco flag -->
+![Monaco Flag](https://upload.wikimedia.org/wikipedia/commons/e/ea/Flag_of_Monaco.svg) <!-- Monaco Flag Symbol -->
 
 Welcome to the **La Casa de Papel** CTF team! We're a group of OSINT and Intelligence enthusiasts and professionals who are passionate about cracking challenges, unraveling mysteries, and sharing knowledge in the field of All-Source Intelligence.
 
