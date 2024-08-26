@@ -26,7 +26,7 @@ We believe in the power of collective intelligence and aim to create a community
 - **Knowledge Sharing**: Regular meetings, write-ups, and tutorials to educate and empower our team and the broader community.
 
 ## 📝 **Team Write-Ups**
-Check out some of our recent CTF write-ups:
+Check out some of our recent CTF write ups:
 
 1. **[HACKOSINT CTF Writeup](https://medium.com/@souf6x/hackosint-ctf-write-up-475e93e258aa)**
 2. **[Diver OSINT Writeup](https://medium.com/@PretendNotToBe/writeup-of-diver-osint-ctf-2024-13be6d7ea847)**
