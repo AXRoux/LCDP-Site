@@ -14,7 +14,7 @@ We believe in the power of collective intelligence and aim to create a community
 - **Problem Solvers** who love the thrill of a good challenge and the satisfaction of uncovering the truth.
 
 ## 🛠️ **Core Skills**
-- **ASINT**: Deep web research, social engineering, geolocation, and more.
+- **ASINT**: DarkNet research, social engineering, geolocation, and more.
 - **Cyber Security**: Malware analysis, Digital Forensics, Programming, C&C, and more.
 - **CTF Expertise**: Capture The Flag competitions, both offensive and defensive strategies.
 - **Collaboration**: Teamwork and knowledge sharing, helping each other grow and succeed.
